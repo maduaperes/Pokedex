@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Paleta Pokémon clássica atualizada */
+:root {
+  --red-poke: #D32F2F;       /* Vermelho forte, tipo pokébola */
+  --white-poke: #FAFAFA;     /* Branco puro */
+  --black-poke: #212121;     /* Preto escuro */
+  --yellow-poke: #FFEB3B;    /* Amarelo Pikachu */
+  --blue-poke: #1976D2;      /* Azul água */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background: radial-gradient(circle at center, #FFEB3B, #D32F2F);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  color: var(--black-poke);
+  user-select: none;
+  text-shadow: 1px 1px 2px var(--shadow-color);
+}
+
+.container {
+  background: var(--white-poke);
+  width: 100%;
+  max-width: 400px;
+  padding: 45px 30px 60px 30px;
+  border-radius: 28px;
+  border: 6px solid var(--red-poke);
+  box-shadow:
+    0 0 0 8px var(--yellow-poke),
+    0 10px 20px var(--shadow-color);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 1.7rem;
+  margin-bottom: 40px;
+  color: var(--red-poke);
+  text-shadow: 2px 2px var(--yellow-poke);
+  letter-spacing: 0.15em;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 16px 22px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  border: 4px solid var(--black-poke);
+  border-radius: 18px;
+  outline: none;
+  color: var(--black-poke);
+  background: var(--white-poke);
+  box-shadow: inset 1px 1px 4px #e0e0e0;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: text;
+}
+
+input[type="text"]::placeholder {
+  color: var(--black-poke);
+  opacity: 0.6;
+}
+
+input[type="text"]:focus {
+  border-color: var(--yellow-poke);
+  box-shadow: 0 0 12px var(--yellow-poke);
+}
+
+button {
+  margin-top: 24px;
+  background: linear-gradient(45deg, var(--blue-poke), #0D47A1);
+  color: var(--white-poke);
+  border: 4px solid var(--black-poke);
+  padding: 16px 28px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  border-radius: 18px;
+  cursor: pointer;
+  box-shadow: 0 8px 0 var(--black-poke);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #1565C0, #002171);
+  box-shadow: 0 12px 6px var(--black-poke);
+  transform: translateY(-2px);
+}
+
+.info {
+  margin-top: 48px;
+  user-select: text;
+}
+
+/* Animação fade-in + zoom */
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Pokébola container para exibir resultado */
+.pokeball {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background:
+    linear-gradient(to bottom, var(--red-poke) 0%, var(--red-poke) 50%, var(--white-poke) 50%, var(--white-poke) 100%);
+  box-shadow:
+    inset 0 8px 14px rgba(0,0,0,0.3),
+    0 8px 18px var(--shadow-color);
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: transform 0.35s ease;
+  pointer-events: none; /* bloqueia interação quando invisível */
+}
+
+.pokeball.show {
+  animation: fadeZoomIn 0.5s forwards;
+  pointer-events: auto;
+}
+
+.pokeball:hover {
+  transform: scale(1.07);
+}
+
+.pokeball::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 18px;
+  background: var(--black-poke);
+  transform: translateY(-50%);
+  z-index: 10;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.75);
+}
+
+.pokeball::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  background: var(--white-poke);
+  border: 8px solid var(--black-poke);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  box-shadow:
+    0 0 16px var(--shadow-color),
+    inset 0 6px 10px rgba(255,255,255,0.9);
+}
+
+.pokeball-content {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  padding: 14px;
+  text-align: center;
+  color: var(--black-poke);
+  overflow-y: auto;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  user-select: text;
+  z-index: 12;
+}
+
+.pokeball-content img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 8px var(--red-poke));
+  transition: transform 0.3s ease;
+}
+
+.pokeball-content img:hover {
+  transform: scale(1.1);
+}
+
+.pokeball-content .poke-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--red-poke);
+  margin-bottom: 12px;
+  text-transform: capitalize;
+  text-shadow: 2px 2px var(--yellow-poke);
+}
+
+.pokeball-content .poke-info {
+  font-weight: 400;
+  color: #333;
+  text-shadow: 0 0 4px var(--white-poke);
+  white-space: normal;
+  line-height: 1.4;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .container {
+    max-width: 320px;
+    padding: 35px 20px 50px 20px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  input[type="text"],
+  button {
+    font-size: 10px;
+    padding: 14px 20px;
+  }
+
+  .pokeball {
+    width: 180px;
+    height: 180px;
+  }
+
+  .pokeball-content {
+    width: 160px;
+    height: 160px;
+    font-size: 10px;
+  }
+
+  .pokeball-content img {
+    width: 90px;
+  }
+}
