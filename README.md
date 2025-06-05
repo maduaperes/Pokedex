@@ -1,6 +1,6 @@
 # Pokédex | Buscar Pokémon
 
-Um site simples e moderno para buscar informações sobre Pokémon por nome ou ID, com visual inspirado no universo Pokémon.
+Simples e moderno para buscar informações sobre Pokémon por nome ou ID, com visual inspirado no universo Pokémon.
 
 ---
 
