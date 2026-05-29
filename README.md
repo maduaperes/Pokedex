@@ -1,105 +1,76 @@
-# Pokédex
+# Pokedex
 
 ## Visão Geral
+A **Pokedex** é uma aplicação web interativa desenvolvida com tecnologias front-end nativas (HTML5, CSS3 e JavaScript). O projeto tem como objetivo principal consumir uma API pública externa baseada no protocolo REST para buscar, tratar e renderizar dinamicamente informações detalhadas sobre diferentes criaturas do universo Pokémon, utilizando identificadores textuais (nomes) ou numéricos (IDs).
 
-A **Pokédex** é uma aplicação web simples desenvolvida com HTML, CSS e JavaScript que permite buscar informações de Pokémon por nome ou ID.  
-O projeto consome dados de uma API pública para exibir informações como nome, imagem e características básicas do Pokémon pesquisado.
+---
+
+## Funcionalidades Principais
+* **Consulta Dinâmica:** Busca assíncrona de dados estruturados utilizando parâmetros de entrada flexíveis (ID ou nome).
+* **Consumo de API RESTful:** Integração robusta com serviços de dados externos para recuperação de informações em tempo real.
+* **Manipulação Ativa do DOM:** Renderização em tempo real de atributos essenciais, incluindo nomes, identificadores e os respectivos sprites visuais oficiais.
+* **Tratamento de Exceções:** Sistema integrado para gerenciar falhas de rede ou entradas inválidas (como registros não localizados na base de dados).
+
+---
+
+## Tecnologias e Conceitos Utilizados
+* **Estruturação de Interface:** HTML5 semântico
+* **Estilização e Layout:** CSS3 com foco em responsividade e centralização de elementos
+* **Programação e Lógica:** JavaScript Assíncrono (Vanilla JS) utilizando a API Fetch e Promises
+* **Fonte de Dados:** PokéAPI (serviço público e gratuito de dados estruturados)
 
 ---
 
 ## Estrutura do Projeto
+Organização dos arquivos que compõem o repositório:
+
+```text
+Pokedex/
+├── index.html       # Estrutura base da interface, campos de entrada e containers de exibição
+├── style.css        # Identidade visual, estilização dos componentes e regras de responsividade
+└── app.js           # Lógica de requisição assíncrona, tratamento de JSON e atualização do DOM
 
 ```
-├── index.html
-├── style.css
-├── app.js
-├── README.md
-└── .gitattributes
+
+---
+
+## Detalhes de Implementação
+
+### Camada de Apresentação (HTML/CSS)
+
+A interface fornece um campo de captura de texto otimizado associado a um contêiner dinâmico de resultados. O layout foi desenvolvido para se adaptar a diferentes dimensões de tela, garantindo consistência visual tanto em ambientes desktop quanto em dispositivos móveis.
+
+### Camada de Comportamento (JavaScript)
+
+A lógica central baseia-se no uso de funções assíncronas (`async/await`) para gerenciar as requisições HTTP direcionadas aos endpoints da PokéAPI. Após o retorno bem-sucedido dos dados em formato JSON, o script extrai as propriedades necessárias e atualiza os nós específicos da árvore do DOM de forma limpa, substituindo os estados anteriores.
+
+---
+
+## Como Executar o Projeto
+
+1. **Clonar o repositório:**
+```bash
+git clone [https://github.com/maduaperes/Pokedex.git](https://github.com/maduaperes/Pokedex.git)
+
 ```
 
 
----
+2. **Navegar até a pasta:**
+```bash
+cd Pokedex
 
-## Funcionalidades
+```
 
-- Busca de Pokémon por nome ou ID
-- Exibição de dados dinâmicos via API
-- Interface simples e responsiva
-- Exibição de imagem oficial do Pokémon
-- Atualização dinâmica da área de resultados
 
----
-
-## Interface
-
-### index.html
-Página principal da Pokédex. Contém:
-
-- Campo de entrada para nome ou ID do Pokémon  
-- Botão de busca  
-- Área de exibição das informações retornadas pela API  
+3. **Executar a aplicação:**
+Abra o arquivo `index.html` diretamente em qualquer navegador web moderno ou utilize utilitários de servidor local, como a extensão Live Server.
 
 ---
 
-## JavaScript
+## Objetivo Educacional
 
-### app.js
-Responsável por toda a lógica da aplicação, incluindo:
+Este repositório atua como um projeto prático de portfólio desenvolvido para consolidar os seguintes tópicos técnicos:
 
-- Requisição à API de Pokémon
-- Processamento dos dados retornados
-- Atualização dinâmica do DOM
-- Tratamento de erros (Pokémon não encontrado, requisições inválidas)
-
----
-
-## CSS
-
-### style.css
-Define o visual da Pokédex, incluindo:
-
-- Layout centralizado da interface
-- Estilização do input e botão
-- Organização da área de exibição de informações
-- Responsividade básica para diferentes tamanhos de tela
-
----
-
-## API Utilizada
-
-O projeto utiliza a API pública:
-
-- https://pokeapi.co/
-
-Ela fornece dados completos sobre Pokémon, incluindo sprites, nomes, tipos e estatísticas.
-
----
-
-## Como Executar
-
-1. Baixe ou clone o repositório
-2. Abra o arquivo `index.html` em um navegador moderno
-3. Digite o nome ou ID de um Pokémon
-4. Clique em **Buscar**
-
----
-
-## Exemplo de Uso
-
-- Pikachu
-- Charizard
-- 25
-- 150
-
----
-
-## Objetivo
-
-O objetivo do projeto é praticar:
-
-- Consumo de APIs REST
-- Manipulação de DOM com JavaScript puro
-- Tratamento de dados assíncronos
-- Criação de interfaces interativas
-
----
+* Manipulação e controle de requisições assíncronas em JavaScript.
+* Parsing e tratamento de objetos JSON complexos.
+* Atualização de elementos de interface de forma reativa a eventos do usuário.
