@@ -10,14 +10,13 @@ O projeto consome dados de uma API pública para exibir informações como nome,
 ## Estrutura do Projeto
 
 ```
-
 ├── index.html
 ├── style.css
 ├── app.js
 ├── README.md
 └── .gitattributes
+```
 
-```id="pokedex_tree_01"
 
 ---
 
